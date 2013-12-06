@@ -2,4 +2,15 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">AndroidApplication1</string>
+
+  <string name="planet_prompt">Choose a planet</string>
+  <string-array name="planets_array">
+    <item>Computers</item>
+    <item>Programming</item>
+    <item>Math</item>
+    <item>Science</item>
+    <item>Engineering</item>
+    <item>Job Hunting</item>
+  </string-array>
+  
 </resources>

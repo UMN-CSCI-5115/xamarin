@@ -12,23 +12,22 @@ using Android.Widget;
 
 namespace AndroidApplication1
 {
-    [Activity(Label = "ActivityEventSearch")]
-    public class ActivityEventSearch : Activity
+    [Activity(Label = "ActivityGroupSearch")]
+    public class ActivityGroupSearch : Activity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
+
+                SetContentView(Resource.Layout.GroupSearch);
+
+
             // Create your application here
-
-            SetContentView(Resource.Layout.EventSearch);
-
-
-            // Create your application here
-            Button searchEvents = FindViewById<Button>(Resource.Id.eventSearchButton);
-            searchEvents.Click += (IntentSender, e) =>
+            Button searchGroups = FindViewById<Button>(Resource.Id.groupSearchButton);
+            searchGroups.Click += (IntentSender, e) =>
             {
-                StartActivity(typeof(ActivityEventSearchResults));
+                StartActivity(typeof(ActivityGroupSearchResults));
             };
 
             Spinner eventCategories = FindViewById<Spinner>(Resource.Id.eventCategories);
@@ -40,16 +39,17 @@ namespace AndroidApplication1
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             eventCategories.Adapter = adapter;
 
-
-
         }
 
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
 
-            string toast = string.Format("The planet is {0}", spinner.GetItemAtPosition(e.Position));
+            string toast = string.Format("The category is {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
+        
+        
+        
+        }
     }
-}
